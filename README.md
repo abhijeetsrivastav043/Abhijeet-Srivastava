@@ -7,10 +7,6 @@
 
 ## 👤 Author
 **Abhijeet Srivastava**  
-Roll No: 246 PBA 021  
-MBA (Business Analytics and Data Science)  
-Supervisor: Mr. Alok Sharma
-
 ---
 
 ## 📌 Project Overview
