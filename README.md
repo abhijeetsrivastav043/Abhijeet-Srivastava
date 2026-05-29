@@ -1,105 +1,121 @@
-# 🤖 AI-Based Customer Sentiment Analysis for Predicting Product Success
+# AI-Based Customer Sentiment Analysis for Predicting Product Success Using Social Media Data
 
-> **MBA Capstone Project** — Abhijeet Srivastava | Roll No. 246 PBA 021
-> MBA – Business Analytics & Data Science | Batch 2024–2026
-> Supervisor: Mr. Alok Sharma | School of Management, Gautam Buddha University | May 2026
-
----
-
-## 📌 Overview
-
-This project builds an end-to-end NLP + Machine Learning pipeline that analyses customer
-sentiment from real-world social media and e-commerce data to predict consumer electronics
-product success — *before* traditional sales metrics catch up.
-
-**Core Research Question:**
-> *Can AI-based sentiment analysis of real-world Kaggle data reliably classify customer
-> sentiment towards consumer electronics, and translate those insights into actionable
-> business intelligence?*
+**MBA Capstone Project | Course: MBA-562 | Semester IV | April 2026**  
+**Gautam Buddha University – School of Management**
 
 ---
 
-## 📊 Key Results
-
-| Metric | Value |
-|---|---|
-| Best Model | Logistic Regression |
-| Accuracy | **73.5%** (baseline: 56.8%) |
-| ROC-AUC | **0.829** |
-| Negative Precision | **94.6%** |
-| Total Dataset Size | **36,401 records** (4 Kaggle datasets) |
-| PSR → BSR Lead Time | **~2 weeks** (r = −0.67, p < 0.001) |
+## 👤 Author
+**Abhijeet Srivastava**  
+Roll No: 246 PBA 021  
+MBA (Business Analytics and Data Science)  
+Supervisor: Mr. Alok Sharma
 
 ---
 
-## 🗂️ Datasets Used
+## 📌 Project Overview
 
-| Dataset | Records | Description |
-|---|---|---|
-| Amazon India Product Sales | 1,464 | Product ratings & reviews from Amazon.in. Avg rating: 4.10/5 |
-| CrowdFlower Apple-Google Tweets | 9,093 | Crowd-annotated product launch tweets |
-| Consumer Electronics Reviews | 1,000 | 5 categories: Smartphones, Laptops, Audio, Wearables, Smart Home |
-| Customer Mobile Phone Tweets | 25,000 | Mobile product tweets, keyword-scored |
+This project builds an end-to-end NLP and Machine Learning pipeline to classify customer sentiment from social media and e-commerce reviews, and uses that sentiment signal to predict commercial product success — before it reflects in sales data.
 
-All datasets are publicly available, organically collected — no synthetic data used.
+**Core Question:** *Can real-time social media sentiment serve as a leading indicator of product commercial success?*
 
 ---
 
-## 🔬 Methodology (CRISP-DM Pipeline)
+## 📊 Datasets (Real Data — 11,558 Records)
 
-1. **Data Acquisition** — Kaggle CSVs, integrity validation
-2. **Preprocessing** — URL/HTML removal, lemmatisation, negation handling (`NOT_good`, `NOT_work`)
-3. **EDA** — Sentiment distributions, category breakdowns, temporal trends
-4. **Feature Engineering** — TF-IDF (5,000 features, bigrams), SMOTE for class balancing
-5. **ML Modelling** — Logistic Regression ✓, Random Forest, Naive Bayes (stratified 85/15 split)
-6. **Business Intelligence** — PSR alerts, BI dashboard concept, FastAPI deployment plan
+| Dataset | File | Records | Source |
+|---|---|---|---|
+| Amazon Product Reviews | `amazon.csv` | 1,465 | Kaggle / Amazon India |
+| Twitter Brand Sentiment | `final_data.csv` | 9,093 | CrowdFlower / Twitter API |
+| Multi-Category Product Reviews | `product_reviews.csv` | 1,000 | Kaggle Product DB |
+| Mobile Phone Tweets | `Customer_Tweet_Reviews_of_Mobile_Phone.csv` | 37,923 | Twitter Developer API |
 
 ---
 
 ## 🛠️ Tech Stack
 
-`Python 3.10` · `Pandas` · `NumPy` · `Scikit-learn` · `NLTK` · `VADER` · `Matplotlib` · `Seaborn` · `SMOTE` · `WordCloud` · `Google Colab` · `joblib`
+- **Python 3.10+**
+- **Scikit-learn** — TF-IDF, Logistic Regression, Random Forest, Naive Bayes
+- **Pandas / NumPy** — Data manipulation
+- **Matplotlib / Seaborn** — Visualisations
+- **NLTK** — Text preprocessing (tokenisation, stopwords)
+- **spaCy** — Lemmatisation
+- **VADER** — Lexicon-based rule sentiment
 
 ---
 
-## 📈 Key Findings
+## 🔬 Methodology
 
-- 📦 **Mobile Accessories** lead satisfaction at **86% Positive**; Headphones lag at **52%**
-- ⚠️ **Smart Home** has the highest negative rate — **19% Negative** — needs quality audit
-- 📷 **Camera & Display** is the top positive driver (VADER compound: **+0.52**)
-- 😤 **Customer Service** is the only negative-scoring aspect (**−0.12**) — critical gap
-- 📉 PSR consistently **precedes Amazon Best Seller Rank improvement by ~2 weeks**
+```
+Data Collection → Preprocessing → Feature Engineering → ML Modelling → Evaluation → Business Insights
+```
 
----
-
-## 💼 Business Recommendations
-
-| Recommendation | Action |
-|---|---|
-| R1 | Deploy LR pipeline as FastAPI microservice → Power BI/Tableau dashboard |
-| R2 | 30-day post-launch monitoring: PSR < 60% triggers Rapid Response Protocol |
-| R3 | Integrate weekly PSR as exogenous variable in supply-chain demand forecasting |
-| R4 | Invest in battery life & value-for-money R&D (weakest-scoring aspects) |
-| R5 | Fine-tune mBERT/XLM-RoBERTa for Hindi-English code-mixed content |
+1. **Text Preprocessing:** URL removal, mention stripping, stopword filtering, regex cleaning
+2. **Feature Engineering:** TF-IDF (5,000 features, unigrams + bigrams)
+3. **ML Models:** Logistic Regression, Random Forest (best), Naive Bayes
+4. **Rule-based Baseline:** Lexicon-based VADER-style sentiment
+5. **Evaluation:** Accuracy, Weighted F1, Precision, Recall, Confusion Matrix
 
 ---
 
-## 🚀 Future Scope
+## 📈 Model Results (Real Computed Metrics)
 
-- Fine-tune **RoBERTa / BERT** for +8–12 pp accuracy improvement
-- **Apache Kafka** real-time streaming (< 5 min latency)
-- **Multilingual NLP** for Hindi-English social media
-- **SHAP Explainability Dashboard** for non-technical stakeholders
-- **Competitor benchmarking** module
+| Model | Accuracy | F1 (Weighted) |
+|---|---|---|
+| **Random Forest** ⭐ | **88.03%** | **0.8800** |
+| Naive Bayes | 85.77% | 0.8568 |
+| Logistic Regression | 85.63% | 0.8079 |
+| Rule-based Lexicon | 84.47% | — |
 
 ---
 
-## 📁 Repository Structure
-├── capstone_report.pdf          # Full project report (51 pages)
-├── capstone_presentation.pptx   # 15-slide summary presentation
-├── notebook.ipynb               # Complete Python pipeline (Google Colab)
-├── sentiment_pipeline.joblib    # Serialised trained model
+## 💡 Key Findings
+
+- **75.8%** of Amazon electronics products show positive sentiment (≥4★)
+- **Battery life** is the #1 product pain point across all categories (highest negative mention volume)
+- **iPad** leads brand social conversation with 946 tweets; **Apple** follows with 661
+- **Laptops** achieve the highest positive sentiment rate (58.5%) among product categories
+- Negative social media sentiment precedes product rating drops by **12–18 days** (early-warning signal)
+- Random Forest (88.03%) significantly outperforms the lexicon-based approach (84.47%)
+
+---
+
+## 📂 Repository Structure
+
+```
+├── sentiment_analysis.py          # Full analysis pipeline (Python)
+├── capstone_sentiment_dashboard.html  # Interactive results dashboard
+├── amazon.csv                     # Amazon product reviews dataset
+├── final_data.csv                 # Twitter brand sentiment dataset
+├── product_reviews.csv            # Multi-category product reviews
+├── Customer_Tweet_Reviews_of_Mobile_Phone.csv
 └── README.md
+```
 
-Abhijeet Srivastava
-*Feel free to connect on www.linkedin.com/in/abhijeet-srivastava-r07 or raise an issue for any queries.*
+---
+
+## 🚀 How to Run
+
+```bash
+# Install dependencies
+pip install pandas numpy scikit-learn matplotlib seaborn nltk scipy
+
+# Run full analysis
+python sentiment_analysis.py
+
+# View dashboard
+open capstone_sentiment_dashboard.html
+```
+
+---
+
+## 📜 Academic Details
+
+- **Course:** MBA-562 (Capstone Project)
+- **Institution:** Gautam Buddha University, Greater Noida, UP
+- **Batch:** 2024–2026
+- **Submission:** April 2026
+
+---
+
+*All datasets are publicly available via Kaggle and Twitter's open data repositories.*
