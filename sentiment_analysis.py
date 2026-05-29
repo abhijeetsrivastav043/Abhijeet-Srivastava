@@ -1,9 +1,8 @@
 """
 ============================================================
 AI-Based Customer Sentiment Analysis for Predicting Product Success
-MBA Capstone Project | Gautam Buddha University
-Author: Abhijeet Srivastava | Roll No: 246 PBA 021
-Supervisor: Mr. Alok Sharma
+ Capstone Project 
+Author: Abhijeet Srivastava |
 ============================================================
 
 Datasets Used:
