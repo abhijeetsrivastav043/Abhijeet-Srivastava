@@ -104,14 +104,6 @@ open capstone_sentiment_dashboard.html
 ```
 
 ---
-
-## 📜 Academic Details
-
-- **Course:** MBA-562 (Capstone Project)
-- **Institution:** Gautam Buddha University, Greater Noida, UP
-- **Batch:** 2024–2026
-- **Submission:** April 2026
-
 ---
 
 *All datasets are publicly available via Kaggle and Twitter's open data repositories.*
